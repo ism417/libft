@@ -21,7 +21,7 @@ BONUSSRC := ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c ft_lstl
 OBJS := $(SRCS:.c=.o)
 
 # Bonus object files
-BONUSOBJS = $(BONUSSRC:%.c=%.o)
+BONUSOBJS = $(BONUSSRC:.c=.o)
 
 # Target executable
 NAME := libft.a
@@ -34,10 +34,13 @@ $(NAME): $(OBJS)
 all: $(NAME)
 
 # Compile source files into object files
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+$(OBJS): $(SRCS)
+	$(CC) $(CFLAGS) -c $(SRCS)
 
-bonus: $(BONUSOBJS)
+$(BONUSOBJS): $(BONUSSRC)
+	$(CC) $(CFLAGS) -c $(BONUSSRC)
+
+bonus: $(BONUSOBJS) all
 	ar rcs $(NAME) $(BONUSOBJS)
 
 # Clean up object files and the TARGET executable

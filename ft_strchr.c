@@ -6,7 +6,7 @@
 /*   By: eismail <eismail@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 19:37:39 by eismail           #+#    #+#             */
-/*   Updated: 2023/12/15 15:59:15 by eismail          ###   ########.fr       */
+/*   Updated: 2023/12/23 16:18:49 by eismail          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ char	*ft_strchr(const char *s, int c)
 		return ((char *)s + ft_strlen(s));
 	while (s[i])
 	{
-		if (s[i] == (unsigned char) c)
+		if (s[i] == (char) c)
 			return ((char *)s + i);
 		i++;
 	}
-	if (s[i] == (unsigned char) c)
+	if (s[i] == (char) c)
 		return ((char *)s + i);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: eismail <eismail@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 11:08:04 by eismail           #+#    #+#             */
-/*   Updated: 2023/12/20 13:10:13 by eismail          ###   ########.fr       */
+/*   Updated: 2023/12/23 18:57:03 by eismail          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,8 @@ char	**ft_split(char const *s, char c)
 	size_t	nbr_string;
 
 	nbr_string = 0;
+	if (s == NULL)
+		return (NULL);
 	nbr_string = count_strings(s, c);
 	split_str = (char **)malloc((nbr_string + 1) * sizeof (char *));
 	if (split_str == NULL)

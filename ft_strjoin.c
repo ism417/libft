@@ -6,7 +6,7 @@
 /*   By: eismail <eismail@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 19:45:01 by eismail           #+#    #+#             */
-/*   Updated: 2023/12/20 17:26:52 by eismail          ###   ########.fr       */
+/*   Updated: 2023/12/23 16:48:31 by eismail          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char	*new_str;
 	size_t	size_to_allocate;
 
+	if (!s1 && !s2)
+		return (NULL);
+	if (!s1)
+		return (ft_strdup(s2));
+	if (!s2)
+		return (ft_strdup(s1));
 	size_to_allocate = ft_strlen(s1) + ft_strlen(s2);
 	new_str = malloc(sizeof(char) * (size_to_allocate + 1));
 	if (new_str == NULL)
