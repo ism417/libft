@@ -6,11 +6,12 @@
 /*   By: eismail <eismail@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 17:40:37 by eismail           #+#    #+#             */
-/*   Updated: 2023/12/23 11:13:39 by eismail          ###   ########.fr       */
+/*   Updated: 2023/12/23 20:23:02 by eismail          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 /*
 int main ()
@@ -138,7 +139,7 @@ int main ()
 /*
 int main ()
 {
-	char *p= ft_strnstr("temp text @ temp text2 @yaya","text2",25);
+	char *p= ft_strnstr(NULL,"text2",25);
 	printf("%s",p);
 }
 */
@@ -150,24 +151,31 @@ int main ()
 }
 */
 /*
+*/
 int main ()
 {
 	int i = 0;
-	char  *p = calloc(10,sizeof(char));
-	
-	while (i <= 10)
-	{
-		printf(":%c:\n",p[i]);
-		i++;
-	}
-	free (p);
+	char  *p = ft_calloc(SIZE_MAX,SIZE_MAX);
+
+	// if (p)
+	// {
+	// 	while (p[i])
+	// 	{
+	// 		p[i] = 0 + i;
+	// 		printf(":%c:\n",p[i]);
+	// 		i++;
+	// 	}
+	// 	free (p);
+	// 	return (0);
+	// }
+	printf("calloc return: %p\n", p);
 }
-*/
 /*
 int main ()
 {
-	char *p = ft_strdup("\0");
+	char *p = ft_strdup(NULL);
 	printf("%s",p);
+	free(p);
 }
 */
 /*
@@ -180,8 +188,8 @@ int main ()
 /*
 int main ()
 {
-	char str1[] = "hello ";
-	char str2[] = "world!";
+	char *str1 = "hello ";
+	char *str2 = "world";
 	char *str3 = ft_strjoin(str1,str2);
 
 	printf("str1 join with str2 : |%s|",str3); 
@@ -191,7 +199,7 @@ int main ()
 /*
 int main ()
 {
-	char text[] = "101010hello w10orld101010";
+	char *text = NULL;
 	char *p = ft_strtrim(text,"10");
 	printf("text : |%s|",p);
 }
@@ -199,10 +207,12 @@ int main ()
 /*
 int main ()
 {
-	// char p[] = "      split       this for   me    !";
-	char **ptr = ft_split("hello!",' ');
+	char *p = "      split       this for   me    !";
+	char **ptr = ft_split(NULL,0);
 	int i = 0;
-	while (ptr[i] != NULL)
+	if (ptr == NULL)
+		return (0);
+	while (ptr[i])
 	{
 		printf("|%s|\n",ptr[i]);
 		i++;
@@ -246,13 +256,12 @@ int main()
 /*
 void to_upper(unsigned int i, char *c)
 {
-	void (i);
     if ((*c >= 'a') && (*c <= 'z'))
     *c -= 32;
 }
 int main()
 {
-    char str[] = "hello, world!";
+    char *str = NULL;
 	ft_striteri(str, to_upper);
 	printf("%s\n", str);
     return 0;
@@ -340,12 +349,12 @@ int main()
 	ft_lstadd_back(&head,member4);
 
 //delete a node passing the node
-//	ft_lstdelone(member3,del);
+// ft_lstdelone(member3,del);
 	
 //delete node and it successor (litab3inha)
-//	ft_lstclear(&member3,del);
+	ft_lstclear(&member3,del);
 //make memeber2 the new teal
-//	member2->next = NULL;
+	member2->next = NULL;
 	t_list *newlist;
 	newlist = ft_lstmap(head,ft_upper,del);
 	ft_lstiter(newlist,ft_print);
