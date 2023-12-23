@@ -6,7 +6,7 @@
 /*   By: eismail <eismail@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 09:22:41 by eismail           #+#    #+#             */
-/*   Updated: 2023/12/23 11:12:50 by eismail          ###   ########.fr       */
+/*   Updated: 2023/12/23 12:53:44 by eismail          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,18 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*new_list;
 	t_list	*new_node;
+	void	*content;
 
-	if (!lst)
+	if (!lst || !f || !del)
 		return (NULL);
 	new_list = NULL;
-	while (lst)
+	while (lst != NULL)
 	{
-		if (f)
-			new_node = ft_lstnew(f(lst->content));
-		else
-			new_node = ft_lstnew(lst->content);
+		content = f(lst->content);
+		new_node = ft_lstnew(content);
 		if (!new_node)
 		{
+			del(content);
 			ft_lstclear(&new_node, del);
 			return (NULL);
 		}
