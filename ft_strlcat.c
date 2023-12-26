@@ -6,7 +6,7 @@
 /*   By: eismail <eismail@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 16:23:52 by eismail           #+#    #+#             */
-/*   Updated: 2023/12/20 17:28:32 by eismail          ###   ########.fr       */
+/*   Updated: 2023/12/24 15:54:52 by eismail          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 
 	i = 0;
 	j = 0;
+	if (dstsize == 0)
+		return (ft_strlen(src));
 	while ((dst[i] != '\0') && (i < dstsize))
 	{
 		i++;

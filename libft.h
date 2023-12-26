@@ -6,7 +6,7 @@
 /*   By: eismail <eismail@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 17:53:23 by eismail           #+#    #+#             */
-/*   Updated: 2023/12/23 19:49:27 by eismail          ###   ########.fr       */
+/*   Updated: 2023/12/24 12:48:37 by eismail          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,12 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdint.h>
 
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }	t_list;
-
 int		ft_isalpha(int c);
 int		ft_isascii(int c);
 int		ft_isdigit(int c);
